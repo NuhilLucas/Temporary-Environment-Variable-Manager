@@ -1,0 +1,8 @@
+{
+    "python": {
+        "executable": "rel|python_standalone/python.exe",
+        "params": ["python"],
+        "envar": {},
+        "command": {}
+    }
+}

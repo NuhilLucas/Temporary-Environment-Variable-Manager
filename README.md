@@ -1,1 +1,3 @@
-# Temporary-Environment-Variable-Manager
+1. 添加 Shell 级环境变量
+2. 添加指令
+3. 合成可执行文件调用命令

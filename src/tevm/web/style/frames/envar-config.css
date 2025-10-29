@@ -1,0 +1,82 @@
+#envar-config .frame-body{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#envar-config table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#envar-config thead {
+    width: 100%;
+    display: flex;
+    padding: 5px 0px 0px 0px;
+}
+
+#envar-config tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#envar-config tbody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 0px;
+}
+
+#envar-config tbody tr {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#envar-config tbody td {
+    width: 40%;
+    height: 100%;
+}
+
+#envar-config tbody td input {
+    width: 100%;
+    height: 100%;
+}
+
+#envar-config .trow-btn {
+    width: 40px;
+}
+
+#envar-config i {
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+#envar-config i:hover {
+    transform: scale(1.2);
+}
+
+.fe-reduce:before {
+    padding: 3px;
+    content: "➖";
+}
+
+.fe-plus:before {
+    padding: 3px;
+    content: "➕";
+}
+
+.fe-table:before {
+    content: "📅";
+}
+
+.fe-code:before {
+    content: "📝";
+}
+
+.fe-save:before {
+    content: "💾";
+}

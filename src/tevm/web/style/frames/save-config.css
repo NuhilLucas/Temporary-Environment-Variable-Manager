@@ -1,0 +1,53 @@
+#save-config .frame-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#save-config .set-executable {
+    height: 30px;
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+}
+
+#save-config #file-btn {
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+#save-config #file-btn:hover {
+    transform: scale(1.2);
+}
+
+#save-config #file-path {
+    width: 90%;
+    height: 100%;
+    outline: none;
+    resize: none;
+}
+
+#save-config .config-btns {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+#save-config .config-btn {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.fe-file:before {
+    content: "📂";
+}
+
+.fe-preview:before{
+    content: "✨";
+}
+
+.fe-save:before{
+    content: "💾";
+}

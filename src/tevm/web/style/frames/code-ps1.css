@@ -1,0 +1,17 @@
+#code-editor .frame-body {
+    display: flex;
+}
+
+#code-editor .line-num {
+    min-width: 20px;
+}
+
+#code-editor .code-box {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
