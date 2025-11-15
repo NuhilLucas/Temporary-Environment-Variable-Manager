@@ -1,6 +1,9 @@
 .venv/
+dist/*
 projects/*
+temp/*
 tests/
+tools/dev/*
 __pycache__/
 
 !.gitkeep
