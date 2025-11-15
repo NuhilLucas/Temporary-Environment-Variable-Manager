@@ -154,16 +154,20 @@ def __project__(params: list[str]):
 
 def __project_gui__(params: list[str]):
     from tevm.gui import runGUI
+    __state__, _ = True, ""
     if params.__len__() == 0:
-        runGUI()
+        __state__, _ = runGUI()
     elif params.__len__() == 1 and params[0].lower() == "-debug":
-        runGUI(debug=True)
+        __state__, _ = runGUI(debug=True)
     else:
         __help__(
             msg=f"Unknow Command: tevm project gui {" ".join(params)}",
             help_params=["project", "gui"],
             help_level="error"
         )
+
+    if not __state__:
+        CP.print(_)(CP.RED)
 
 def __project_list__(params: list[str]):
     if params.__len__() == 0:

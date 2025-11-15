@@ -20,6 +20,7 @@ Path_HTML: str = Path_Root + "/src/tevm/gui/index.html" # WEB GUI 的 index 文�
 Path_ConfigProjects: str = Path_Root + "/config/projects.json"
 Root_BatScripts: str = Path_Root + "/scripts"
 Root_TempFiles: str = Path_Root + "/temp"
+Root_Packages: str = Path_Root + "/src/tevm/site-packages"
 
 __state__, Projects = json_read(Path_ConfigProjects)
 if not __state__: raise Exception(Projects)

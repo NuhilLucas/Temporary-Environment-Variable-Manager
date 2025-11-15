@@ -3,8 +3,19 @@ from .api import api
 _api_ = api()
 
 def runGUI(debug: bool = False):
+    from sys import path as sys_path
+    from tevm.instance import Path_HTML, Root_Packages
+
+    try:
+        __import__("webview")
+    except ImportError:
+        sys_path.insert(0, Root_Packages)
+        try:
+            __import__("webview")
+        except ImportError:
+            return False, "The Dependency <pywebview> Not Installed Yet."
+
     from webview import create_window, start
-    from tevm.instance import Path_HTML
 
     create_window(
         title="TEVM",
@@ -20,3 +31,5 @@ def runGUI(debug: bool = False):
         debug=debug,
         icon=r"D:\User\Lucas\Desktop\256X256.ico"
     )
+
+    return True, None

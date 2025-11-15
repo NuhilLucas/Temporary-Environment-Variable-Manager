@@ -2,7 +2,6 @@
 # tools/dev/upx-5.0.2-win64/upx.exe --best dist/GetPython.exe
 
 from urllib.request import (
-    urlopen as ulr_urlopen,
     build_opener as ulr_build_opener,
     Request as ulr_Request,
     ProxyHandler as ulr_ProxyHandler
@@ -30,7 +29,7 @@ from time import (
 
 time_start: int = t_time()
 
-def get_release(owner, repo, proxy=None):
+def get_release(owner: str, repo: str, proxy: str | dict = None):
     url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
 
     if isinstance(proxy, str):
@@ -64,14 +63,23 @@ def get_url(data: dict):
     else:
         return False, "Failed"
 
-def file_download(url: str, path: str):
+def file_download(url: str, path: str, proxy: str | dict = None):
+
+    if isinstance(proxy, str):
+        proxy_handler = ulr_ProxyHandler({'http': proxy, 'https': proxy})
+    elif isinstance(proxy, dict):
+        proxy_handler = ulr_ProxyHandler(proxy)
+    else:
+        proxy_handler = None
+
+    opener = ulr_build_opener() if proxy_handler is None else ulr_build_opener(proxy_handler)
+
     FileSize: float = 0
     Progress: int = 0
     ChunkSize: int = 8192
-    os_makedirs(osp_dirname(path), exist_ok=True)
     try:
         os_makedirs(osp_dirname(path), exist_ok=True)
-        with ulr_urlopen(url) as response:
+        with opener.open(url, timeout=30) as response:
             FileSize = round(int(response.headers.get('Content-Length'))/1024/1024, 2)
             Progress = 0
             with open(path, "wb") as File:
@@ -122,7 +130,7 @@ def file_extract(file: str, root: str):
     else:
         return True, root
 
-def run():
+def run(pause: bool = True):
     file_url_old: tuple[str] = ("cpython-3.12.12+20251031-x86_64-pc-windows-msvc-install_only_stripped.tar.gz", "https://github.com/astral-sh/python-build-standalone/releases/download/20251031/cpython-3.12.12%2B20251031-x86_64-pc-windows-msvc-install_only_stripped.tar.gz")
 
     # 获取最新一版 Release
@@ -135,18 +143,18 @@ def run():
         }
     )
     if not _state_get_release_:
-        print("\033[91m" + "Error[get_release]:\n    " + data + "\033[0m")
+        print("\033[91mError[get_release]:\n    " + data + "\033[0m")
     else:
-        print("\033[94m" + "Info[get_release]:\n    release get success." + "\033[0m")
+        print("\033[94mInfo[get_release]:\n    release get success.\033[0m")
 
     # 获取 Release 中的指定 Asset
     _state_get_url_, file_url = get_url(data) if _state_get_release_ else (False, "get latest release asset download url failed")
     if not _state_get_url_:
-        print("\033[91m" + "Error[get_url]:\n    " + file_url + "\033[0m")
+        print("\033[91mError[get_url]:\n    " + file_url + "\033[0m")
         file_url = file_url_old
-        print("\033[93m" + "Warn[get_url]:\n    try to download the old python build version." + "\033[0m")
+        print("\033[93mWarn[get_url]:\n    try to download the old python build version.\033[0m")
     else:
-        print("\033[94m" + "Info[get_url]:\n    asset url get success." + "\033[0m")
+        print("\033[94mInfo[get_url]:\n    asset url get success.\033[0m")
 
     # 下载指定的 Asset
     _state_file_download_, file_path = file_download(
@@ -154,10 +162,10 @@ def run():
         f"temp/{file_url[0]}"
     )
     if not _state_file_download_:
-        print("\033[91m" + "Error[file_download]:\n    " + file_path + "\033[0m")
-        return
+        print("\033[91mError[file_download]:\n    " + file_path + "\033[0m")
+        return input() if pause else None
     else:
-        print("\033[94m" + "Info[file_download]:\n    asset download success." + "\033[0m")
+        print("\033[94mInfo[file_download]:\n    asset download success.\033[0m")
 
     # 解压下载的 tar.gz 文件
     _state_file_extract_, root = file_extract(
@@ -165,14 +173,14 @@ def run():
         "projects"
     )
     if not _state_file_extract_:
-        print("\033[91m" + "Error[file_extract]:\n    " + root + "\033[0m")
-        return
+        print("\033[91mError[file_extract]:\n    " + root + "\033[0m")
+        return input() if pause else None
     else:
-        print("\033[94m" + "Info[file_extract]:\n    tar.gz extract success." + "\033[0m")
+        print("\033[94mInfo[file_extract]:\n    tar.gz extract success.\033[0m")
 
-    print("\033[94m" + f"Info[GetPython]:\n    Time Use: {t_time() - time_start}." + "\033[0m")
+    print("\033[94m" + f"Info[GetPython]:\n    Time Use: {t_time() - time_start}.\033[0m")
+    return input() if pause else None
 
 # === 使用示例 ===
 if __name__ == "__main__":
     run()
-    input()
