@@ -1,0 +1,208 @@
+.fancy {
+    background-color: transparent;
+    border: 2px solid #000;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 0 1.2em;
+    position: relative;
+    text-decoration: none;
+    text-transform: none;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+    font-size: 10px;
+    width: 170px;
+    height: 50px;
+}
+
+.fancy::before {
+    content: "";
+    width: 16px;
+    height: 2px;
+    background: black;
+    position: relative;
+    transition: background 0.3s linear, width 0.3s linear;
+    flex-shrink: 0;
+}
+
+.fancy .text {
+    font-size: 11px;
+    line-height: 1;
+    padding-left: 10px;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    color: black;
+    white-space: nowrap;
+}
+
+.fancy .top-key {
+    height: 2px;
+    width: 16px;
+    top: -2px;
+    left: 8px;
+    position: absolute;
+    background: #e8e8e8;
+    transition: width 0.5s ease-out, left 0.3s ease-out;
+}
+
+.fancy .bottom-key-1 {
+    height: 2px;
+    width: 16px;
+    right: 24px;
+    bottom: -2px;
+    position: absolute;
+    background: #e8e8e8;
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy .bottom-key-2 {
+    height: 2px;
+    width: 8px;
+    right: 8px;
+    bottom: -2px;
+    position: absolute;
+    background: #e8e8e8;
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy:hover {
+    color: white;
+    background: black;
+}
+
+.fancy:hover::before {
+    width: 12px;
+    background: white;
+}
+
+.fancy:hover .text {
+    color: white;
+    padding-left: 12px;
+}
+
+.fancy:hover .top-key {
+    left: -2px;
+    width: 0px;
+}
+
+.fancy:hover .bottom-key-1,
+.fancy:hover .bottom-key-2 {
+    right: 0;
+    width: 0;
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* From Uiverse.io by Cevorob */ 
+button {
+ position: relative;
+ height: 50px;
+ padding: 0 30px;
+ border: 2px solid #000;
+ background: #e8e8e8;
+ user-select: none;
+ white-space: nowrap;
+ transition: all .05s linear;
+ font-family: inherit;
+}
+
+button:before, button:after {
+ content: "";
+ position: absolute;
+ background: #e8e8e8;
+ transition: all .2s linear;
+}
+
+button:before {
+ width: calc(100% + 6px);
+ height: calc(100% - 16px);
+ top: 8px;
+ left: -3px;
+}
+
+button:after {
+ width: calc(100% - 16px);
+ height: calc(100% + 6px);
+ top: -3px;
+ left: 8px;
+}
+
+button:hover {
+ cursor: crosshair;
+}
+
+button:active {
+ transform: scale(0.95);
+}
+
+button:hover:before {
+ height: calc(100% - 32px);
+ top: 16px;
+}
+
+button:hover:after {
+ width: calc(100% - 32px);
+ left: 16px;
+}
+
+button span {
+ font-size: 15px;
+ z-index: 3;
+ position: relative;
+ font-weight: 600;
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+.input-container {
+  width: 97.5%;
+  height: 30px;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: 7px;
+  top: calc(50% + 17px);
+  transform: translateY(calc(-50% - 5px));
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  transition: .2s linear;
+  border: 2.5px solid black;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.input:focus {
+  outline: none;
+  border: 0.5px solid black;
+  box-shadow: -5px -5px 0px black;
+}
+
+.input-container:hover > .icon {
+  animation: anim 1s linear infinite;
+}
+
+@keyframes anim {
+  0%,
+  100% {
+    transform: translateY(calc(-50% - 5px)) scale(1);
+  }
+
+  50% {
+    transform: translateY(calc(-50% - 5px)) scale(1.1);
+  }
+}

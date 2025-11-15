@@ -1,8 +1,8 @@
 {
-    "python": {
-        "executable": "rel|python_standalone/python.exe",
-        "params": ["python"],
-        "envar": {},
-        "command": {}
+    "pysa": {
+        "executables": {
+            "rel|/projects/python_standalone/python.exe": ""
+        },
+        "envars": {}
     }
 }

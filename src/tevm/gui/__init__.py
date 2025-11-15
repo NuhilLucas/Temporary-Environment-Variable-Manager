@@ -2,7 +2,7 @@ from .api import api
 
 _api_ = api()
 
-def runGUI():
+def runGUI(debug: bool = False):
     from webview import create_window, start
     from tevm.instance import Path_HTML
 
@@ -17,5 +17,6 @@ def runGUI():
 
     start(
         gui="edgechromium",
-        # debug=True
+        debug=debug,
+        icon=r"D:\User\Lucas\Desktop\256X256.ico"
     )

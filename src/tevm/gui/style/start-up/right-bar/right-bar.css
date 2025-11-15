@@ -1,0 +1,20 @@
+#right-bar {
+    flex: 5;
+
+    background: #8b8b8b;
+}
+
+#right-bar .frame-title {
+    height: 75px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+
+    padding: 3px 5px 0px 8px;
+
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 2px solid #a6a6a6;
+}

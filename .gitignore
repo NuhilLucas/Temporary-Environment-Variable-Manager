@@ -1,7 +1,6 @@
 .venv/
-python_standalone/*
+projects/*
 tests/
-
 __pycache__/
 
 !.gitkeep
