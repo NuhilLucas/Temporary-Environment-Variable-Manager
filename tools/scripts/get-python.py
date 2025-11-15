@@ -1,5 +1,4 @@
-# python -m nuitka --onefile --enable-plugin=tk-inter --output-dir=dist tools/scripts/GetPython.py
-# tools/dev/upx-5.0.2-win64/upx.exe --best dist/GetPython.exe
+# python -m nuitka --onefile --enable-plugin=tk-inter --output-dir=dist tools/scripts/get-python.py
 
 from urllib.request import (
     build_opener as ulr_build_opener,

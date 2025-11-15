@@ -1,3 +1,5 @@
+# python -m nuitka --onefile --enable-plugin=tk-inter --output-dir=dist tools/scripts/get-pip.py
+
 from urllib.request import (
     build_opener as ulr_build_opener,
     ProxyHandler as ulr_ProxyHandler
