@@ -1,4 +1,4 @@
-# python -m nuitka --onefile --enable-plugin=tk-inter --output-dir=dist tools/scripts/install_dependency.py
+# python -m nuitka --onefile --enable-plugin=tk-inter --output-dir=dist tools/scripts/install-dependency.py
 
 from os.path import exists as osp_exists
 from subprocess import run as sp_run

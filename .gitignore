@@ -1,11 +1,12 @@
 .venv/
-.VSCodeCounter/*
-dist/*
+.VSCodeCounter/
+dist/
 projects/*
 src/tevm/site-packages/*
 temp/*
 tests/
-tools/dev/*
+tools/*
 __pycache__/
 
+!tools/scripts/
 !.gitkeep
