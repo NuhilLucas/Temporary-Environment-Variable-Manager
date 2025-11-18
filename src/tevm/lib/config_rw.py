@@ -1,5 +1,5 @@
 def json_read(file: str):
-    from os.path import exists as path_exists
+    from .func import path_exists
     from json import load as json_load
     if not path_exists(file):
         return False, f"File Not Exist: {file}"

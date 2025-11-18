@@ -2,6 +2,7 @@
 .VSCodeCounter/
 dist/
 projects/*
+release/
 src/tevm/site-packages/*
 temp/*
 tests/
@@ -10,3 +11,7 @@ __pycache__/
 
 !tools/scripts/
 !.gitkeep
+
+asd asd as d    asd.txt
+
+/[<>?\/#]/

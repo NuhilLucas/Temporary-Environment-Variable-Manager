@@ -3,7 +3,7 @@ from os.path import exists as Path_Exists, isabs as Path_IsABS, normpath as Path
 from ..instance import Projects as PROJECTS, Path_ConfigProjects, Root_BatScripts
 from ..lib.config_rw import json_write
 from ..lib.scripter import bat_build
-from ..lib.function import os_remove, ColorPrint as CP
+from ..lib.func.function import os_remove, ColorPrint as CP
 
 def Execute(): pass
 def __help__(): pass
@@ -153,11 +153,13 @@ def __project__(params: list[str]):
             )
 
 def __project_gui__(params: list[str]):
-    from tevm.gui import runGUI
+    from ..gui import runGUI
     __state__, _ = True, ""
     if params.__len__() == 0:
+        CP.print(f"This Features Has Not Been Realized Yet.")(CP.YELLOW); return
         __state__, _ = runGUI()
     elif params.__len__() == 1 and params[0].lower() == "-debug":
+        CP.print(f"This Features Has Not Been Realized Yet.")(CP.YELLOW); return
         __state__, _ = runGUI(debug=True)
     else:
         __help__(
@@ -327,4 +329,5 @@ def __project_modify__(params: list[str]):
 
 if __name__ == "__main__":
     # __help__(msg="123123", help_params=["project"])
-    __project_new__(["test", "1"])
+    # __project_new__(["test", "1"])
+    pass

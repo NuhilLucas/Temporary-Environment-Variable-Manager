@@ -180,6 +180,5 @@ def run(pause: bool = True):
     print("\033[94m" + f"Info[GetPython]:\n    Time Use: {t_time() - time_start}.\033[0m")
     return input() if pause else None
 
-# === 使用示例 ===
 if __name__ == "__main__":
     run()

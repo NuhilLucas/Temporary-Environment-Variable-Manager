@@ -17,5 +17,8 @@ class ColorPrint:
 def sys_exit(status: int = 0):
     __exit__(status)
 
+def path_exists(path: str) -> bool:
+    return __exists__(path)
+
 def os_remove(path: str):
     __remove__(path) if __exists__(path) else None

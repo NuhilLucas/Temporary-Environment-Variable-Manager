@@ -1,7 +1,5 @@
-from os.path import exists as path_exists
-
 from subprocess import run as subprocess_run
-from .function import sys_exit, os_remove
+from .func import path_exists, os_remove
 from ..instance import Root_BatScripts, Root_TempFiles
 
 BatTemplate: str = '''@echo off

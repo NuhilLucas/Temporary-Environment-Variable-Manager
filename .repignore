@@ -1,0 +1,30 @@
+__pycache__
+
+.git/
+.venv/
+.vscode/
+.VSCodeCounter/
+config/projects.json
+dist/
+projects/
+release/
+scripts/
+src/tevm/site-packages/
+temp/
+tests/
+tools/dev/
+
+.gitkeep
+.gitignore
+.repignore
+poetry.lock
+pyproject.toml
+README.md
+
+!scripts/tevm.bat
+
+# -------------------
+# Not Implemented Yet
+# -------------------
+
+src/tevm/gui/

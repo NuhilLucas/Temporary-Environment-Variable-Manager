@@ -25,5 +25,5 @@ else:
     )
     run(cwd=Path_CallFrom)
 
-from tevm.lib.function import sys_exit
+from tevm.lib.func import sys_exit
 sys_exit(0)
